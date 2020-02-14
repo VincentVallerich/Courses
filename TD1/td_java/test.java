@@ -16,6 +16,6 @@ public class test {
 
         c1.increment();
         System.out.println(c1.getName());
-        System.out.println(c2.toString());
+        System.out.println(c2);
     }
 }

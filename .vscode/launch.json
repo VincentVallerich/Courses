@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "td_java.test"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Calculatrice",
             "request": "launch",
             "mainClass": "fr.calculatrice.Calculatrice",

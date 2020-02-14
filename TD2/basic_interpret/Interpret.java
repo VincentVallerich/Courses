@@ -11,34 +11,36 @@ import td_java.Counter;
 import java.util.Scanner;
 
 public class Interpret {
-    boolean exitStatus = false;
-    Counter count = new Counter("Counter", 0);
-    Scanner scan = new Scanner(System.in);
-    String entry;
-    int value;
+    private boolean exitStatus = false;
+    private Counter count;
+    private Scanner scan = new Scanner(System.in);
+    private final String DEFAULT_PROMPT = "=>";
+    private static int value;
 
-    Interpret() { }
+    Interpret() { 
+        count = new Counter("Counter", 0);
+    }
 
     public void menu() {
-        System.out.println("menu");
-        System.out.println("icr");
-        System.out.println("dcr");
-        System.out.println("plus");
-        System.out.println("minus");
-        System.out.println("value");
-        System.out.println("exit");
+        System.out.println("menu\nicr\ndcr\nplus\nminus\nvalue\nexit");
     }
 
-    public void plus(int value) {
+    public void plus() {
         int i=0;
-        while (i!=value)
+        
+        while (i!=returnInt()) {
             count.increment();
+            i++;
+        }
     }
 
-    public void minus(int value) {
+    public void minus() {
         int i=0;
-        while (i!=value)
+        
+        while (i!=returnInt()) {
             count.decrement();
+            i++;
+        }
     }
 
     public void increment() {
@@ -57,8 +59,12 @@ public class Interpret {
         return exitStatus;
     }
 
+    public void printPrompt() {
+        System.out.print(DEFAULT_PROMPT);
+    }
+
     public void execute(String exec) {
-        System.out.println("=>");
+        printPrompt();
         switch(exec) {
             case "icr": 
                 increment();
@@ -70,14 +76,10 @@ public class Interpret {
                 value();
                 break;
             case "plus":
-                System.out.println("Entrez votre nombre : ");
-                value = scan.nextInt();
-                plus(value);
+                plus();
                 break;
             case "minus":
-                System.out.println("Entrez votre nombre : ");
-                value = scan.nextInt();
-                minus(value);
+                minus();
                 break;
             case "exit":
                 exitStatus = true;
@@ -89,6 +91,12 @@ public class Interpret {
     }
 
     public String fetch() {
-        return scan.nextLine();
+        return scan.next();
+    }
+
+    private int returnInt() {
+        System.out.print("Entrez votre nombre : ");
+        value = scan.nextInt();
+        return value;
     }
 }

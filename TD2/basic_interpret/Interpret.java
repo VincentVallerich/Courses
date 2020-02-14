@@ -8,9 +8,14 @@
 package basic_interpret;
 
 import td_java.Counter;
+import java.util.Scanner;
 
 public class Interpret {
-    Counter count = new Counter();
+    boolean exitStatus = false;
+    Counter count = new Counter("Counter", 0);
+    Scanner scan = new Scanner(System.in);
+    String entry;
+    int value;
 
     Interpret() { }
 
@@ -24,13 +29,13 @@ public class Interpret {
         System.out.println("exit");
     }
 
-    public void plus(value) {
+    public void plus(int value) {
         int i=0;
         while (i!=value)
             count.increment();
     }
 
-    public void minus(value) {
+    public void minus(int value) {
         int i=0;
         while (i!=value)
             count.decrement();
@@ -49,6 +54,41 @@ public class Interpret {
     }
 
     public boolean exit() {
-        return false;
+        return exitStatus;
+    }
+
+    public void execute(String exec) {
+        System.out.println("=>");
+        switch(exec) {
+            case "icr": 
+                increment();
+                break;
+            case "dcr": 
+                decrement();
+                break;
+            case "value": 
+                value();
+                break;
+            case "plus":
+                System.out.println("Entrez votre nombre : ");
+                value = scan.nextInt();
+                plus(value);
+                break;
+            case "minus":
+                System.out.println("Entrez votre nombre : ");
+                value = scan.nextInt();
+                minus(value);
+                break;
+            case "exit":
+                exitStatus = true;
+                break;
+            default:
+                menu();
+                break;
+        }
+    }
+
+    public String fetch() {
+        return scan.nextLine();
     }
 }

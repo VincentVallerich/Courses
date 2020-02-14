@@ -8,6 +8,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - App",
             "request": "launch",
+            "mainClass": "basic_interpret.App",
+            "projectName": "Java_6c46a9c0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
             "mainClass": "App"
         },
         {

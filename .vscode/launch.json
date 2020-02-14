@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Calculatrice",
+            "request": "launch",
+            "mainClass": "fr.calculatrice.Calculatrice",
+            "projectName": "Java_6c46a9c0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Learn",
+            "request": "launch",
+            "mainClass": "Learn",
+            "projectName": "Java_6c46a9c0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "td_java.test",
+            "projectName": "Java_6c46a9c0"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TD1<Java_6c46a9c0>",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Java_6c46a9c0"
+        }
+    ]
+}

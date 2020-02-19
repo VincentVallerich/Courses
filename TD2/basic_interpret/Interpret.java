@@ -18,7 +18,7 @@ public class Interpret {
     private static int value;
 
     Interpret() { 
-        count = new Counter("Counter", 0);
+        count = new Counter("C1");
     }
 
     public void menu() {
@@ -64,7 +64,6 @@ public class Interpret {
     }
 
     public void execute(String exec) {
-        printPrompt();
         switch(exec) {
             case "icr": 
                 increment();
@@ -91,6 +90,7 @@ public class Interpret {
     }
 
     public String fetch() {
+        printPrompt();
         return scan.next();
     }
 

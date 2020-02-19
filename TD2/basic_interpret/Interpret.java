@@ -15,7 +15,6 @@ public class Interpret {
     private Counter count;
     private Scanner scan = new Scanner(System.in);
     private final String DEFAULT_PROMPT = "=>";
-    private static int value;
 
     Interpret() { 
         count = new Counter("C1");
@@ -27,8 +26,8 @@ public class Interpret {
 
     public void plus() {
         int i=0;
-        
-        while (i!=returnInt()) {
+        final int ENTRY = returnInt();
+        while (i!=ENTRY) {
             count.increment();
             i++;
         }
@@ -36,8 +35,8 @@ public class Interpret {
 
     public void minus() {
         int i=0;
-        
-        while (i!=returnInt()) {
+        final int ENTRY = returnInt();
+        while (i!=ENTRY) {
             count.decrement();
             i++;
         }
@@ -51,8 +50,8 @@ public class Interpret {
         count.decrement();
     }
 
-    public String value() {
-        return count.toString();
+    public void value() {
+        System.out.println(count.toString());
     }
 
     public boolean exit() {
@@ -96,7 +95,6 @@ public class Interpret {
 
     private int returnInt() {
         System.out.print("Entrez votre nombre : ");
-        value = scan.nextInt();
-        return value;
+        return scan.nextInt();
     }
 }
